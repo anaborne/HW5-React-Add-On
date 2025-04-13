@@ -1,0 +1,52 @@
+.indicator-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .bar-container {
+    position: relative;
+    width: 8px;
+    height: 10rem;
+    background-color: #ddd;
+    border-radius: 4px;
+    overflow: visible;
+    margin-bottom: 0.5rem;
+  }
+  
+  .bar-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ddd;
+    border-radius: 4px;
+    z-index: 0;
+  }
+  
+  .circle-indicator {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid white;
+    z-index: 2;
+  }
+    
+  .bar-label {
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    color: black;
+  }
+
+.bar-max,
+.bar-min {
+  font-size: 0.65rem;
+  color: black;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}

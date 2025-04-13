@@ -1,34 +1,24 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import HomeScreen from './pages/HomeScreen.jsx'
+import ForecastScreen from './pages/ForecastScreen.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentScreen, setCurrentScreen] = useState(0);
+  const handleScreenToggle = () => {
+    setCurrentScreen((prev) => (prev === 0 ? 1 : 0));
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App">
+      <div onClick={handleScreenToggle}>
+        {currentScreen === 0 ? <HomeScreen /> : <ForecastScreen />}
+        <div className="screen-indicator">
+          <div className={`dot ${currentScreen === 0 ? 'active' : ''}`}></div>
+          <div className={`dot ${currentScreen === 1 ? 'active' : ''}`}></div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
